@@ -1,1 +1,28 @@
-package.json
+{
+    "name": "shorten",
+    "version": "0.1.0",
+    "description": "Shorten URL app powered by Node.js and MongoDB",
+    "private": true,
+    "main": "app.js",
+    "scripts": {
+        "start": "node app",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/waltzofpearls/shorten.git"
+    },
+    "keywords": [
+        "shorten",
+        "url"
+    ],
+    "author": "Waltz.of.Pearls",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/waltzofpearls/shorten/issues"
+    },
+    "homepage": "https://github.com/waltzofpearls/shorten",
+    "dependencies": {
+        "express": "4.*"
+    }
+}
