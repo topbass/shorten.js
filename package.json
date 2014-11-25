@@ -23,6 +23,7 @@
     },
     "homepage": "https://github.com/waltzofpearls/shorten",
     "dependencies": {
-        "express": "4.*"
+        "express": "4.*",
+        "mongoose": "3.8.*"
     }
 }
