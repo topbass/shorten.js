@@ -1,29 +1,38 @@
 {
-    "name": "shorten",
-    "version": "0.1.0",
-    "description": "Shorten URL app powered by Node.js and MongoDB",
-    "private": true,
-    "main": "app.js",
-    "scripts": {
-        "start": "node app",
-        "test": "jasmine-node tests/*.spec.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/waltzofpearls/shorten.git"
-    },
-    "keywords": [
-        "shorten",
-        "url"
-    ],
-    "author": "Waltz.of.Pearls <rollie@topbasslabs.com, rollie.ma@gmail.com>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/waltzofpearls/shorten/issues"
-    },
-    "homepage": "https://github.com/waltzofpearls/shorten",
-    "dependencies": {
-        "express": "4.*",
-        "mongoose": "3.8.*"
-    }
+  "name": "shorten",
+  "description": "Shorten URL app powered by Node.js and MongoDB",
+  "author": "Waltz.of.Pearls <rollie@topbasslabs.com, rollie.ma@gmail.com>",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://github.com/waltzofpearls/shorten",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waltzofpearls/shorten.git"
+  },
+  "keywords": [
+    "shorten",
+    "url"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waltzofpearls/shorten/issues"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "jasmine-node --verbose tests"
+  },
+  "dependencies": {
+    "express": "~4.9.0",
+    "body-parser": "~1.8.1",
+    "cookie-parser": "~1.3.3",
+    "morgan": "~1.3.0",
+    "serve-favicon": "~2.1.3",
+    "debug": "~2.0.0",
+    "hbs": "~2.7.0",
+    "less-middleware": "1.0.x",
+    "mongoose": "~3.8.19"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
 }
