@@ -1,5 +1,5 @@
-# shorten
+# shorten.js
 
-[![Build Status](https://travis-ci.org/waltzofpearls/shorten.svg)](https://travis-ci.org/waltzofpearls/shorten)
+[![Build Status](https://travis-ci.org/waltzofpearls/shorten.js.svg)](https://travis-ci.org/waltzofpearls/shorten.js)
 
-Shorten is a Node.js and MongoDB powered shorten URL app.
+Shorten.js is a Node.js, Express and MongoDB powered url shortener app.
