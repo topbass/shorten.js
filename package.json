@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "DEBUG=shorten.js node ./bin/www",
-    "test": "jasmine-node --verbose tests"
+    "test": "node_modules/mocha/bin/mocha --reporter spec --bail --check-leaks tests"
   },
   "dependencies": {
     "express": "~4.9.0",
@@ -31,6 +31,10 @@
     "hbs": "~2.7.0",
     "less-middleware": "1.0.x",
     "mongoose": "~3.8.19"
+  },
+  "devDependencies": {
+    "chai": "~1.10.0",
+    "mocha": "~2.0.1"
   },
   "engines": {
     "node": ">=0.10.0"
