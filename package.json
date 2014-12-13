@@ -1,13 +1,13 @@
 {
-  "name": "shorten",
+  "name": "shorten-js",
   "description": "Shorten URL app powered by Node.js and MongoDB",
   "author": "Waltz.of.Pearls <rollie@topbasslabs.com, rollie.ma@gmail.com>",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/waltzofpearls/shorten",
+  "homepage": "https://github.com/waltzofpearls/shorten.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/waltzofpearls/shorten.git"
+    "url": "https://github.com/waltzofpearls/shorten.js.git"
   },
   "keywords": [
     "shorten",
@@ -15,10 +15,10 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/waltzofpearls/shorten/issues"
+    "url": "https://github.com/waltzofpearls/shorten.js/issues"
   },
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "DEBUG=shorten.js ./bin/www",
     "test": "jasmine-node --verbose tests"
   },
   "dependencies": {
