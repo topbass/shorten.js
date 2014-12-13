@@ -18,7 +18,7 @@
     "url": "https://github.com/waltzofpearls/shorten.js/issues"
   },
   "scripts": {
-    "start": "DEBUG=shorten.js ./bin/www",
+    "start": "DEBUG=shorten.js node ./bin/www",
     "test": "jasmine-node --verbose tests"
   },
   "dependencies": {
