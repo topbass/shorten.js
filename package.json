@@ -19,7 +19,10 @@
   },
   "scripts": {
     "start": "DEBUG=shorten.js node ./bin/www",
-    "test": "node_modules/mocha/bin/mocha --reporter spec --bail --check-leaks tests"
+    "test": "node_modules/mocha/bin/mocha --reporter spec --bail --check-leaks tests",
+    "development": "NODE_ENV=development npm start",
+    "testing": "NODE_ENV=testing npm start",
+    "production": "NODE_ENV=production npm start"
   },
   "dependencies": {
     "express": "~4.9.0",
