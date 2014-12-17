@@ -1,6 +1,6 @@
 {
   "name": "shorten-js",
-  "description": "Shorten URL app powered by Node.js and MongoDB",
+  "description": "URL shortener backed by Node.js, Express and MongoDB",
   "author": "Waltz.of.Pearls <rollie@topbasslabs.com, rollie.ma@gmail.com>",
   "version": "0.1.0",
   "private": true,
