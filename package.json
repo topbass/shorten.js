@@ -31,7 +31,7 @@
     "cookie-parser": "~1.3.3",
     "debug": "~2.0.0",
     "express": "~4.9.0",
-    "hbs": "~2.7.0",
+    "jade": "~1.6.0",
     "less-middleware": "1.0.x",
     "mongoose": "~3.8.19",
     "morgan": "~1.3.0",
