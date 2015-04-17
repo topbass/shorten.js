@@ -10,7 +10,7 @@ gulp.task('less', function() {
         .pipe(plugins.less({
             plugins: [cleancss]
         }))
-        .pipe(plugins.sourcemaps.write())
+        .pipe(plugins.sourcemaps.write('./'))
         .pipe(gulp.dest('public/stylesheets'));
 });
 

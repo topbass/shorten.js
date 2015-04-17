@@ -21,7 +21,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 if (app.get('env') === 'development') {
-    app.use(require('less-middleware')(path.join(__dirname, 'public')));
+    app.use(require('less-middleware')(path.join(__dirname, 'public'), {
+        compiler: {
+            compress: true,
+            yuicompress: true,
+            sourceMap: true
+        }
+    }));
 }
 app.use(express.static(path.join(__dirname, 'public')));
 
