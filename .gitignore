@@ -1,5 +1,13 @@
-.DS_Store
-node_modules
-npm-debug.log
 bin/*.pid
+config/development.yml
+config/production.yml
+config/testing.yml
+public/javascripts/*.min.js
+public/javascripts/*.min.js.map
+public/javascripts/libs/*.min.js
+public/stylesheets/*.css
+public/stylesheets/*.css.map
+node_modules/
 !.gitignore
+.DS_Store
+npm-debug.log
