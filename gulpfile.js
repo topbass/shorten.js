@@ -1,8 +1,10 @@
 
+var browserify = require('browserify');
 var gulp = require('gulp');
-var plugins = require('gulp-load-plugins')();
 var LessPluginCleanCSS = require('less-plugin-clean-css');
-var cleancss = new LessPluginCleanCSS({ advanced: true })
+var cleancss = new LessPluginCleanCSS({ advanced: true });
+var plugins = require('gulp-load-plugins')();
+var source = require('vinyl-source-stream');
 
 gulp.task('less', function() {
     return gulp.src('public/stylesheets/style.less')
@@ -14,4 +16,11 @@ gulp.task('less', function() {
         .pipe(gulp.dest('public/stylesheets'));
 });
 
-gulp.task('default', ['less']);
+gulp.task('browserify', function() {
+    return browserify('public/javascripts/app.js')
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(gulp.dest('public/javascripts/'));
+});
+
+gulp.task('default', ['less', 'browserify']);
