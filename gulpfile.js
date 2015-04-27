@@ -7,20 +7,20 @@ var plugins = require('gulp-load-plugins')();
 var source = require('vinyl-source-stream');
 
 gulp.task('less', function() {
-    return gulp.src('public/stylesheets/style.less')
+    return gulp.src('./public/stylesheets/style.less')
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.less({
             plugins: [cleancss]
         }))
         .pipe(plugins.sourcemaps.write('./'))
-        .pipe(gulp.dest('public/stylesheets'));
+        .pipe(gulp.dest('./public/stylesheets'));
 });
 
 gulp.task('browserify', function() {
-    return browserify('public/javascripts/app.js')
+    return browserify('./public/javascripts/app.js')
         .bundle()
         .pipe(source('bundle.js'))
-        .pipe(gulp.dest('public/javascripts/'));
+        .pipe(gulp.dest('./public/javascripts/'));
 });
 
 gulp.task('default', ['less', 'browserify']);

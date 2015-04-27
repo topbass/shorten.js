@@ -2,6 +2,7 @@ bin/*.pid
 config/development.yml
 config/production.yml
 config/testing.yml
+public/javascripts/bundle.js
 public/javascripts/*.min.js
 public/javascripts/*.min.js.map
 public/javascripts/libs/*.min.js
