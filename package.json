@@ -20,8 +20,9 @@
   "scripts": {
     "start": "DEBUG=shorten.js node ./bin/www",
     "test": "mocha --reporter spec --bail --check-leaks tests",
-    "build": "gulp",
-    "development": "NODE_ENV=development npm start",
+    "watch": "gulp watch",
+    "build": "gulp build",
+    "development": "npm run watch & NODE_ENV=development npm start",
     "testing": "NODE_ENV=testing npm start",
     "production": "NODE_ENV=production npm start"
   },

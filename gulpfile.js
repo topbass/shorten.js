@@ -23,4 +23,10 @@ gulp.task('browserify', function() {
         .pipe(gulp.dest('./public/javascripts/'));
 });
 
-gulp.task('default', ['less', 'browserify']);
+gulp.task('watchify', function() {
+    //
+});
+
+gulp.task('build', ['less', 'browserify']);
+gulp.task('watch', ['watchify']);
+gulp.task('default', ['build']);
