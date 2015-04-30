@@ -74,6 +74,10 @@ gulp.task('lesswatch', function () {
     gulp.watch('./public/stylesheets/**/*.less', ['less']);
 });
 
+gulp.task('clean', function() {
+    //
+});
+
 gulp.task('build', ['less', 'browserify']);
 gulp.task('watch', ['lesswatch', 'watchify']);
 gulp.task('default', ['build']);
