@@ -1,4 +1,4 @@
 
 'use strict';
 
-var angular = require('angular');
+var angular = require('./bower/angular/angular');
