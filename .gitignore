@@ -2,6 +2,7 @@ bin/*.pid
 config/development.yml
 config/production.yml
 config/testing.yml
+public/javascripts/bower/
 public/javascripts/bundle.js
 public/javascripts/bundle.js.map
 public/stylesheets/*.css
