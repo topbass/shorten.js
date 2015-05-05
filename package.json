@@ -32,6 +32,12 @@
     "prebuild": "npm install",
     "build": "gulp build",
 
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update",
+
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor tests/e2e/protractor.conf.js",
+
     "development": "npm run watch & NODE_ENV=development npm start",
     "testing": "NODE_ENV=testing npm start",
     "production": "NODE_ENV=production npm start"
