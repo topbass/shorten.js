@@ -1,4 +1,3 @@
-
 'use strict';
 
 var argv = require('yargs').argv;
