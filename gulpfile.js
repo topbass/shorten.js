@@ -10,71 +10,71 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
 var bundler = browserify({
-    entries: ['./public/javascripts/app.js'],
-    debug: !argv.production,
-    cache: {},
-    packageCache: {},
-    fullPaths: true // for watchify
+  entries: ['./public/javascripts/app.js'],
+  debug: !argv.production,
+  cache: {},
+  packageCache: {},
+  fullPaths: true // for watchify
 });
 
 gulp.task('less', function() {
-    return gulp.src('./public/stylesheets/style.less')
-        .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.if(
-            argv.production,
-            plugins.less({ plugins: [cleancss] }),
-            plugins.less()
-        ))
-        .pipe(plugins.sourcemaps.write('./'))
-        .pipe(gulp.dest('./public/stylesheets'));
+  return gulp.src('./public/stylesheets/style.less')
+    .pipe(plugins.sourcemaps.init())
+    .pipe(plugins.if(
+      argv.production,
+      plugins.less({ plugins: [cleancss] }),
+      plugins.less()
+    ))
+    .pipe(plugins.sourcemaps.write('./'))
+    .pipe(gulp.dest('./public/stylesheets'));
 });
 
 gulp.task('browserify', function() {
-    return bundler
-        .bundle()
-        .pipe(source('bundle.js'))
-        .pipe(buffer())
-        .pipe(plugins.if(
-            !argv.production,
-            plugins.sourcemaps.init({ loadMaps: true })
-        ))
-        .pipe(plugins.if(
-            !argv.production,
-            plugins.sourcemaps.write('./')
-        ))
-        .pipe(plugins.if(
-            argv.production,
-            plugins.uglify()
-        ))
-        .pipe(gulp.dest('./public/javascripts/'));
+  return bundler
+    .bundle()
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(plugins.if(
+        !argv.production,
+        plugins.sourcemaps.init({ loadMaps: true })
+    ))
+    .pipe(plugins.if(
+        !argv.production,
+        plugins.sourcemaps.write('./')
+    ))
+    .pipe(plugins.if(
+        argv.production,
+        plugins.uglify()
+    ))
+    .pipe(gulp.dest('./public/javascripts/'));
 });
 
 gulp.task('watchify', function() {
-    var watcher  = watchify(bundler);
+  var watcher  = watchify(bundler);
 
-    return watcher
-        .on('error', plugins.util.log.bind(plugins.util, 'Browserify Error'))
-        .on('update', function() {
-            watcher.bundle()
-                .pipe(source('bundle.js'))
-                .pipe(buffer())
-                .pipe(sourcemaps.init({ loadMaps: true }))
-                .pipe(sourcemaps.write('./'))
-                .pipe(gulp.dest('./public/javascripts/'));
-
-            plugins.util.log("Updated JavaScript sources");
-        })
-        .bundle() // Create the initial bundle when starting the task
+  return watcher
+    .on('error', plugins.util.log.bind(plugins.util, 'Browserify Error'))
+    .on('update', function() {
+      watcher.bundle()
         .pipe(source('bundle.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./public/javascripts/'));
+
+      plugins.util.log("Updated JavaScript sources");
+    })
+    .bundle() // Create the initial bundle when starting the task
+    .pipe(source('bundle.js'))
+    .pipe(gulp.dest('./public/javascripts/'));
 });
 
 gulp.task('lesswatch', function () {
-    gulp.watch('./public/stylesheets/**/*.less', ['less']);
+  gulp.watch('./public/stylesheets/**/*.less', ['less']);
 });
 
 gulp.task('clean', function() {
-    //
+  //
 });
 
 gulp.task('build', ['less', 'browserify']);
