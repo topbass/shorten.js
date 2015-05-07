@@ -24,7 +24,7 @@
     "start": "DEBUG=shorten.js node ./bin/www",
 
     "pretest": "npm install",
-    "test": "mocha -R spec -b --check-leaks tests/unit && karma start karma.conf.js",
+    "test": "mocha -R spec -b --check-leaks tests/unit-node && karma start tests/karma.conf.js",
 
     "prewatch": "npm install",
     "watch": "gulp watch",
