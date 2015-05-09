@@ -6,3 +6,5 @@ angular.module('shortenJs', [
   'ngRoute',
   'shortenJs.version'
 ]);
+
+require('./components/');
