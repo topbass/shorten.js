@@ -71,6 +71,7 @@
     "hbsfy": "^2.2.1",
     "istanbul": "^0.2.10",
     "karma": "~0.10",
+    "karma-browserify": "^4.1.2",
     "karma-junit-reporter": "^0.2.2",
     "less-plugin-clean-css": "^1.5.0",
     "mocha": "^2.0.1",
@@ -85,5 +86,7 @@
     "node": ">=0.11.0"
   },
   "browser": {
+    "angular": "./public/javascripts/bower/angular/angular.js",
+    "angular-route": "./public/javascripts/bower/angular-route/angular-route.min.js"
   }
 }

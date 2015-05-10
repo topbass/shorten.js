@@ -4,19 +4,28 @@ module.exports = function(config) {
   config.set({
     basePath: '../',
 
+    preprocessors: {
+      'public/javascripts/app.js': ['browserify']
+    },
+
+    browserify: {
+      watch: true,
+      debug: true
+    },
+
     files: [
       'public/javascripts/bower/angular/angular.js',
       'public/javascripts/bower/angular-route/angular-route.js',
       'public/javascripts/bower/angular-resource/angular-resource.js',
       'public/javascripts/bower/angular-animate/angular-animate.js',
       'public/javascripts/bower/angular-mocks/angular-mocks.js',
-      'public/javascripts/components/**/*.js',
-      'tests/unit-ng/**/*.js'
+      'public/javascripts/app.js',
+      'tests/unit-ng/**/*_test.js'
     ],
 
     autoWatch: true,
 
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'browserify'],
 
     browsers: ['Chrome'],
 
@@ -24,6 +33,7 @@ module.exports = function(config) {
       'karma-chrome-launcher',
       'karma-firefox-launcher',
       'karma-jasmine',
+      'karma-browserify',
       'karma-junit-reporter'
     ],
 

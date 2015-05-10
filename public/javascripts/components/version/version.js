@@ -1,5 +1,7 @@
 'use strict';
 
+var angular = require('../../bower/angular/angular');
+
 angular
   .module('shortenJs.version', [
     'shortenJs.version.interpolate-filter',

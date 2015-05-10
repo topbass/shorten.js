@@ -1,5 +1,7 @@
 'use strict';
 
+var angular = require('angular');
+
 angular
   .module('shortenJs.version.version-directive', [])
   .directive('appVersion', ['version', function(version) {

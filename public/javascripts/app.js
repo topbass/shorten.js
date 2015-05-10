@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('./bower/angular/angular');
+var angular = require('angular');
 
 angular.module('shortenJs', [
   'ngRoute',
