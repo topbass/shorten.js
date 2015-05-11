@@ -14,16 +14,18 @@ module.exports = function(config) {
     },
 
     files: [
-      'public/javascripts/bower/angular/angular.js',
-      'public/javascripts/bower/angular-route/angular-route.js',
-      'public/javascripts/bower/angular-resource/angular-resource.js',
-      'public/javascripts/bower/angular-animate/angular-animate.js',
-      'public/javascripts/bower/angular-mocks/angular-mocks.js',
+      // 'public/javascripts/bower/angular/angular.js',
+      // 'public/javascripts/bower/angular-loader/angular-loader.js',
+      // 'public/javascripts/bower/angular-animate/angular-animate.js',
+      // 'public/javascripts/bower/angular-mocks/angular-mocks.js',
+      // 'public/javascripts/bower/angular-resource/angular-resource.js',
+      // 'public/javascripts/bower/angular-route/angular-route.js',
       'public/javascripts/app.js',
       'tests/unit-ng/**/*_test.js'
     ],
 
-    autoWatch: true,
+    singleRun: true,
+    autoWatch: false,
 
     frameworks: ['jasmine', 'browserify'],
 

@@ -86,7 +86,7 @@
     "node": ">=0.11.0"
   },
   "browser": {
-    "angular": "./public/javascripts/bower/angular/angular.js",
-    "angular-route": "./public/javascripts/bower/angular-route/angular-route.min.js"
+    "angular": "./public/javascripts/bower/angular/index.js",
+    "angular-route": "./public/javascripts/bower/angular-route/index.js"
   }
 }

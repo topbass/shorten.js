@@ -1,10 +1,14 @@
 'use strict';
 
-var angular = require('../../bower/angular/angular');
+var angular = require('angular');
+
+exports = module.exports = angular.module('shortenJs.version');
 
 angular
   .module('shortenJs.version', [
-    'shortenJs.version.interpolate-filter',
-    'shortenJs.version.version-directive'
+    // 'shortenJs.version.interpolate-filter',
+    // 'shortenJs.version.version-directive'
+    require('./interpolate-filter'),
+    require('./version-directive')
   ])
   .value('version', '0.1');
