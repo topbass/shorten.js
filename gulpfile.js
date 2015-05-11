@@ -10,7 +10,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
 var bundler = browserify({
-  entries: ['./public/javascripts/app.js'],
+  entries: ['./public/javascripts/app/main.js'],
   debug: !argv.production,
   cache: {},
   packageCache: {},
@@ -46,7 +46,7 @@ gulp.task('browserify', function() {
         argv.production,
         plugins.uglify()
     ))
-    .pipe(gulp.dest('./public/javascripts/'));
+    .pipe(gulp.dest('./public/javascripts/app/'));
 });
 
 gulp.task('watchify', function() {
@@ -60,13 +60,13 @@ gulp.task('watchify', function() {
         .pipe(buffer())
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./public/javascripts/'));
+        .pipe(gulp.dest('./public/javascripts/app/'));
 
       plugins.util.log("Updated JavaScript sources");
     })
     .bundle() // Create the initial bundle when starting the task
     .pipe(source('bundle.js'))
-    .pipe(gulp.dest('./public/javascripts/'));
+    .pipe(gulp.dest('./public/javascripts/app/'));
 });
 
 gulp.task('lesswatch', function () {

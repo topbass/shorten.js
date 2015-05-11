@@ -5,7 +5,8 @@ module.exports = function(config) {
     basePath: '../',
 
     preprocessors: {
-      'public/javascripts/app.js': ['browserify']
+      'public/javascripts/app/main.js': ['browserify'],
+      'tests/unit-ng/**/*_test.js': ['browserify']
     },
 
     browserify: {
@@ -14,13 +15,7 @@ module.exports = function(config) {
     },
 
     files: [
-      // 'public/javascripts/bower/angular/angular.js',
-      // 'public/javascripts/bower/angular-loader/angular-loader.js',
-      // 'public/javascripts/bower/angular-animate/angular-animate.js',
-      // 'public/javascripts/bower/angular-mocks/angular-mocks.js',
-      // 'public/javascripts/bower/angular-resource/angular-resource.js',
-      // 'public/javascripts/bower/angular-route/angular-route.js',
-      'public/javascripts/app.js',
+      'public/javascripts/app/main.js',
       'tests/unit-ng/**/*_test.js'
     ],
 
