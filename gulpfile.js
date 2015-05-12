@@ -8,6 +8,7 @@ var cleancss = new LessPluginCleanCSS({ advanced: true });
 var plugins = require('gulp-load-plugins')();
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var karma = require('karma').server;
 
 var bundler = browserify({
   entries: ['./public/javascripts/app/main.js'],
@@ -69,7 +70,7 @@ gulp.task('watchify', function() {
     .pipe(gulp.dest('./public/javascripts/app/'));
 });
 
-gulp.task('lesswatch', function () {
+gulp.task('less-watch', function () {
   gulp.watch('./public/stylesheets/**/*.less', ['less']);
 });
 
@@ -77,6 +78,30 @@ gulp.task('clean', function() {
   //
 });
 
+gulp.task('mocha-test', function() {
+  return gulp.src('./tests/unit-node/**/*_test.js')
+    .pipe(plugins.mocha({
+      reporter: 'spec',
+      bail: true,
+      ignoreLeaks: false
+    }));
+});
+
+gulp.task('karma-tdd', function(done) {
+  karma.start({
+    configFile: __dirname + '/tests/karma.conf.js'
+  }, done);
+});
+
+gulp.task('karma-single-run', function(done) {
+  karma.start({
+    configFile: __dirname + '/tests/karma.conf.js',
+    singleRun: true
+  }, done);
+});
+
 gulp.task('build', ['less', 'browserify']);
-gulp.task('watch', ['lesswatch', 'watchify']);
-gulp.task('default', ['build']);
+gulp.task('watch', ['less-watch', 'watchify']);
+gulp.task('tdd', ['mocha-test', 'karma-tdd']);
+gulp.task('test', ['mocha-test', 'karma-single-run']);
+gulp.task('default', ['clean', 'build']);
