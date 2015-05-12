@@ -19,8 +19,8 @@ module.exports = function(config) {
       'tests/unit-ng/**/*_test.js'
     ],
 
-    singleRun: true,
-    autoWatch: false,
+    singleRun: false,
+    autoWatch: true,
 
     frameworks: ['jasmine', 'browserify'],
 

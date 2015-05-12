@@ -25,6 +25,7 @@
 
     "pretest": "npm install",
     "test": "mocha -R spec -b --check-leaks tests/unit-node && karma start tests/karma.conf.js",
+    "test-single-run": "mocha -R spec -b --check-leaks tests/unit-node && karma start tests/karma.conf.js --single-run",
 
     "prewatch": "npm install",
     "watch": "gulp watch",
@@ -72,6 +73,10 @@
     "istanbul": "^0.2.10",
     "karma": "^0.12.31",
     "karma-browserify": "^4.1.2",
+    "karma-chrome-launcher": "^0.1.10",
+    "karma-cli": "^0.0.4",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-jasmine": "^0.3.5",
     "karma-junit-reporter": "^0.2.2",
     "less-plugin-clean-css": "^1.5.0",
     "mocha": "^2.0.1",
