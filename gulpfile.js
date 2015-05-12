@@ -21,11 +21,7 @@ var bundler = browserify({
 gulp.task('less', function() {
   return gulp.src('./public/stylesheets/style.less')
     .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.if(
-      argv.production,
-      plugins.less({ plugins: [cleancss] }),
-      plugins.less()
-    ))
+    .pipe(plugins.if( argv.production, plugins.less({plugins: [cleancss]}), plugins.less() ))
     .pipe(plugins.sourcemaps.write('./'))
     .pipe(gulp.dest('./public/stylesheets'));
 });
@@ -35,18 +31,9 @@ gulp.task('browserify', function() {
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(buffer())
-    .pipe(plugins.if(
-        !argv.production,
-        plugins.sourcemaps.init({ loadMaps: true })
-    ))
-    .pipe(plugins.if(
-        !argv.production,
-        plugins.sourcemaps.write('./')
-    ))
-    .pipe(plugins.if(
-        argv.production,
-        plugins.uglify()
-    ))
+    .pipe(plugins.if( !argv.production, plugins.sourcemaps.init({ loadMaps: true }) ))
+    .pipe(plugins.if( !argv.production, plugins.sourcemaps.write('./') ))
+    .pipe(plugins.if( argv.production, plugins.uglify() ))
     .pipe(gulp.dest('./public/javascripts/app/'));
 });
 
