@@ -97,4 +97,4 @@ gulp.task('build', ['less', 'browserify']);
 gulp.task('watch', ['less-watch', 'watchify']);
 gulp.task('tdd', ['mocha-test', 'karma-tdd']);
 gulp.task('test', ['mocha-test', 'karma-single-run']);
-gulp.task('default', ['clean', 'build']);
+gulp.task('default', ['build']);
