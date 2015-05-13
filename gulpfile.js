@@ -2,13 +2,14 @@
 
 var argv = require('yargs').argv;
 var browserify = require('browserify');
+var buffer = require('vinyl-buffer');
+var del = require('del');
 var gulp = require('gulp');
+var karma = require('karma').server;
 var LessPluginCleanCSS = require('less-plugin-clean-css');
 var cleancss = new LessPluginCleanCSS({ advanced: true });
 var plugins = require('gulp-load-plugins')();
 var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var karma = require('karma').server;
 
 var bundler = browserify({
   entries: ['./public/javascripts/app/main.js'],
@@ -61,8 +62,13 @@ gulp.task('less-watch', function () {
   gulp.watch('./public/stylesheets/**/*.less', ['less']);
 });
 
-gulp.task('clean', function() {
-  //
+gulp.task('clean', function(done) {
+  del([
+    './public/javascripts/app/bundle.js',
+    './public/javascripts/app/bundle.js.map',
+    './public/stylesheets/style.css',
+    './public/stylesheets/style.css.map'
+  ], done);
 });
 
 gulp.task('mocha-test', function() {
