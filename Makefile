@@ -41,7 +41,7 @@ pull:
 install:
 	@. ~/.nvm/nvm.sh && \
 	nvm use 0.11 && \
-	npm install
+	npm run build
 
 test:
 	@. ~/.nvm/nvm.sh && \
