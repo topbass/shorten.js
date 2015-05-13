@@ -9,7 +9,6 @@ WORKDIR /srv/www/shorten.js
 COPY . .
 
 RUN \
-    npm install && \
     npm run build && \
     tee config/development.yml \
         config/testing.yml \
