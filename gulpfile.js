@@ -93,8 +93,20 @@ gulp.task('karma-single-run', function(done) {
   }, done);
 });
 
-gulp.task('build', ['less', 'browserify']);
-gulp.task('watch', ['less-watch', 'watchify']);
-gulp.task('tdd', ['mocha-test', 'karma-tdd']);
-gulp.task('test', ['mocha-test', 'karma-single-run']);
+gulp.task('build:css', ['less']);
+gulp.task('build:js', ['browserify']);
+gulp.task('build', ['build:css', 'build:js']);
+
+gulp.task('watch:css', ['less-watch']);
+gulp.task('watch:js', ['watchify']);
+gulp.task('watch', ['watch:css', 'watch:js']);
+
+gulp.task('tdd:frontend', ['karma-tdd']);
+gulp.task('tdd:backend', ['mocha-test']);
+gulp.task('tdd', ['tdd:backend', 'tdd:frontend']);
+
+gulp.task('test:frontend', ['karma-single-run']);
+gulp.task('test:backend', ['mocha-test']);
+gulp.task('test', ['test:backend', 'test:frontend']);
+
 gulp.task('default', ['build']);
