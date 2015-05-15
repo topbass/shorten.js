@@ -32,9 +32,9 @@ gulp.task('browserify', function() {
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(buffer())
-    .pipe(plugins.if( !argv.production, plugins.sourcemaps.init({ loadMaps: true }) ))
-    .pipe(plugins.if( !argv.production, plugins.sourcemaps.write('./') ))
+    .pipe(plugins.if( argv.production, plugins.sourcemaps.init({ loadMaps: true }) ))
     .pipe(plugins.if( argv.production, plugins.uglify() ))
+    .pipe(plugins.if( argv.production, plugins.sourcemaps.write('./') ))
     .pipe(gulp.dest('./public/javascripts/app/'));
 });
 
