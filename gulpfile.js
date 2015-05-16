@@ -19,6 +19,11 @@ var bundler = browserify({
   fullPaths: true // for watchify
 });
 
+var docker = {
+  repo: 'waltzofpearls/shorten.js',
+  name: 'shorten.js'
+}
+
 gulp.task('less', function() {
   return gulp.src('./public/stylesheets/style.less')
     .pipe(plugins.sourcemaps.init())
@@ -40,7 +45,6 @@ gulp.task('browserify', function() {
 
 gulp.task('watchify', function() {
   var watcher  = watchify(bundler);
-
   return watcher
     .on('error', plugins.util.log.bind(plugins.util, 'Browserify Error'))
     .on('update', function() {
@@ -92,6 +96,47 @@ gulp.task('karma-single-run', function(done) {
     singleRun: true
   }, done);
 });
+
+gulp.task('docker:build', plugins.shell.task([
+  'docker build -t <%= repo %> .'
+], { templateData: docker }));
+
+gulp.task('docker:run:prod', plugins.shell.task([
+  'docker run -p 49002:3000 -d -e NODE_ENV=production --name <%= name %> <%= repo %>'
+], { templateData: docker }));
+
+gulp.task('docker:run:test', plugins.shell.task([
+  'docker run -p 49002:3000 -d -e NODE_ENV=testing --name <%= name %> <%= repo %>'
+], { templateData: docker }));
+
+gulp.task('docker:run:dev', plugins.shell.task([
+  'docker run -p 49002:3000 -d -e NODE_ENV=development --name <%= name %> <%= repo %>'
+], { templateData: docker }));
+
+gulp.task('docker:stop', plugins.shell.task([
+  'docker ps -a | grep <%= name %> > /dev/null \
+  && docker stop <%= name %> \
+  && docker rm <%= name %> \
+  || echo "\nDocker container [<%= name %>] does not exist."'
+], { templateData: docker }));
+
+gulp.task('docker:status', plugins.shell.task([
+  'docker ps -a -f name=<%= name %>'
+], { templateData: docker }));
+
+gulp.task('docker:purge', plugins.shell.task([
+  'docker images | grep <%= repo %> > /dev/null \
+  && docker rmi <%= repo %> \
+  || echo "\nDocker image [<%= repo %>] does not exist."'
+], { templateData: docker }));
+
+gulp.task('docker:push', plugins.shell.task([
+  'docker push <%= repo %>'
+], { templateData: docker }));
+
+gulp.task('docker:pull', plugins.shell.task([
+  'docker pull <%= repo %>'
+], { templateData: docker }));
 
 gulp.task('build:css', ['less']);
 gulp.task('build:js', ['browserify']);
