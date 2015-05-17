@@ -30,8 +30,8 @@
     "prewatch": "npm install",
     "watch": "gulp watch",
 
-    "prebuild": "npm install",
-    "build": "gulp build",
+    "pregulp": "npm install",
+    "gulp": "gulp",
 
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",

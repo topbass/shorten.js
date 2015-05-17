@@ -9,7 +9,7 @@ WORKDIR /srv/www/shorten.js
 COPY . .
 
 RUN \
-    npm run build && \
+    npm run gulp build && \
     tee config/development.yml \
         config/testing.yml \
         config/production.yml < config/dist.yml
