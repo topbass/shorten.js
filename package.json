@@ -37,7 +37,7 @@
     "update-webdriver": "webdriver-manager update",
 
     "preprotractor": "npm run update-webdriver",
-    "protractor": "protractor tests/e2e/protractor.conf.js",
+    "protractor": "protractor tests/protractor.conf.js",
 
     "development": "npm run watch & NODE_ENV=development npm start",
     "testing": "NODE_ENV=testing npm start",
