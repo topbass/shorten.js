@@ -10,7 +10,7 @@ module.exports = function(config) {
     },
 
     browserify: {
-      watch: true,
+      watch: false,
       debug: true
     },
 
@@ -30,8 +30,7 @@ module.exports = function(config) {
       'karma-chrome-launcher',
       'karma-firefox-launcher',
       'karma-jasmine',
-      'karma-browserify',
-      'karma-junit-reporter'
+      'karma-browserify'
     ],
 
     reporters: ['dots']
