@@ -19,8 +19,8 @@ module.exports = function(config) {
       'tests/unit-ng/**/*_test.js'
     ],
 
-    singleRun: false,
-    autoWatch: true,
+    singleRun: true,
+    autoWatch: false,
 
     frameworks: ['jasmine', 'browserify'],
 
@@ -34,9 +34,6 @@ module.exports = function(config) {
       'karma-junit-reporter'
     ],
 
-    junitReporter : {
-      outputFile: 'tests/out/unit.xml',
-      suite: 'unit'
-    }
+    reporters: ['dots']
   });
 };
