@@ -1,0 +1,15 @@
+main:
+  build: ./main/
+  links:
+    - mongo
+    - postgres
+  ports:
+    - "49003:3000"
+mongo:
+  build: ./mongo/
+  volumes:
+    - /opt/persistence/shorten.js/mongo:/var/lib/mongodb
+postgres:
+  build: ./postgres/
+  volumes:
+    - /opt/persistence/shorten.js/postgre:/var/lib/postgresql
