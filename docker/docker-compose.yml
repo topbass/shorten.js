@@ -1,15 +1,22 @@
 main:
   build: ./main/
   links:
+    - redis
     - mongo
     - postgres
   ports:
     - "49003:3000"
+  restart: always
+redis:
+  image: redis:lastest
+  restart: always
 mongo:
   build: ./mongo/
   volumes:
     - /opt/persistence/shorten.js/mongo:/var/lib/mongodb
+  restart: always
 postgres:
   build: ./postgres/
   volumes:
     - /opt/persistence/shorten.js/postgre:/var/lib/postgresql
+  restart: always
