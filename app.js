@@ -32,7 +32,8 @@ if (app.get('env') === 'development') {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
+app.use('/api/oauth', require('./routes/oauth'));
+app.use('/api/v1', require('./routes/api/v1'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
