@@ -1,0 +1,5 @@
+mongo:
+  server: localhost
+  database: shortenjs
+  user: shortenjs
+  password: shortenjs
