@@ -7,9 +7,11 @@ var del = require('del');
 var gulp = require('gulp');
 var karma = require('karma').server;
 var LessPluginCleanCSS = require('less-plugin-clean-css');
-var cleancss = new LessPluginCleanCSS({ advanced: true });
 var plugins = require('gulp-load-plugins')();
 var source = require('vinyl-source-stream');
+var watchify = require('watchify');
+
+var cleancss = new LessPluginCleanCSS({ advanced: true });
 
 var bundler = browserify({
   entries: ['./public/javascripts/app/main.js'],
