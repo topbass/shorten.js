@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var Url = new Schema({
+var Link = new Schema({
   hash: String,
   long_url: String,
   status: String,
@@ -16,6 +16,6 @@ var Url = new Schema({
   timestamp: {type: Date, default: Date.now}
 });
 
-Url.index({hash: 1});
+Link.index({hash: 1});
 
-module.exports = mongoose.model('Url', Url);
+module.exports = mongoose.model('Link', Link);
