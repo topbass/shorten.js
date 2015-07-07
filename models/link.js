@@ -13,7 +13,8 @@ var Link = new Schema({
   title, String,
   note: String,
   archived: Boolean,
-  timestamp: {type: Date, default: Date.now}
+  timestamp: {type: Date, default: Date.now},
+  user: {type: Schema.ObjectId, ref: 'User'}
 });
 
 Link.index({hash: 1});
