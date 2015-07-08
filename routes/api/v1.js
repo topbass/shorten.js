@@ -17,4 +17,20 @@ router.get('/shorten', function(req, res) {
   //
 });
 
+router.get('/expand', function(req, res) {
+  //
+});
+
+router.get('/link/clicks', function(req, res) {
+  //
+});
+
+router.get('/oauth/app', function(req, res) {
+  //
+});
+
+router.get('/user/info', function(req, res) {
+  //
+});
+
 module.exports = router;
