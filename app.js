@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-app.locals._ = require('underscore');
+app.locals._ = require('lodash');
 app.locals.moment = require('moment');
 
 // view engine setup
