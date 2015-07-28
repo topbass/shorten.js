@@ -101,7 +101,7 @@
     "yargs": "^3.8.0"
   },
   "engines": {
-    "node": ">=0.11.0"
+    "node": ">=0.12.0"
   },
   "browser": {
     "angular": "./public/javascripts/bower/angular/index.js",
