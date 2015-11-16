@@ -5,7 +5,7 @@ var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
 var del = require('del');
 var gulp = require('gulp');
-var karma = require('karma').server;
+var karma = require('karma').Server;
 var LessPluginCleanCSS = require('less-plugin-clean-css');
 var plugins = require('gulp-load-plugins')();
 var source = require('vinyl-source-stream');
@@ -109,19 +109,19 @@ gulp.task('mocha-test', function() {
 // $ gulp karma-tdd
 //
 gulp.task('karma-tdd', function(done) {
-  karma.start({
+  new karma({
     configFile: __dirname + '/tests/karma.conf.js'
-  }, done);
+  }, done).start();
 });
 
 //
 // $ gulp karma-single-run
 //
 gulp.task('karma-single-run', function(done) {
-  karma.start({
+  new karma({
     configFile: __dirname + '/tests/karma.conf.js',
     singleRun: true
-  }, done);
+  }, done).start();
 });
 
 //
