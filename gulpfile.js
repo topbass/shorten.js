@@ -22,8 +22,8 @@ var bundler = browserify({
 });
 
 var docker = {
-  repo: 'waltzofpearls/shorten.js',
-  name: 'shorten.js',
+  repo: 'waltzofpearls/shorten-js',
+  name: 'shorten-js',
   port: '49003'
 };
 

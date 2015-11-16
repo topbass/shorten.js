@@ -2,16 +2,16 @@ FROM waltzofpearls/nodejs
 
 MAINTAINER waltzofpearls <rollie.ma@gmail.com>
 
-ADD bin/docker/main/run /etc/service/shorten.js/run
+ADD bin/docker/main/run /etc/service/shorten-js/run
 
-WORKDIR /srv/www/shorten.js
+WORKDIR /srv/www/shorten-js
 
 COPY ../. .
 
 RUN npm run gulp build
 
 ENV PORT 3000
-ENV DEBUG shorten.js
+ENV DEBUG shorten-js
 
 EXPOSE 3000
 

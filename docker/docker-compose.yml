@@ -13,10 +13,10 @@ redis:
 mongo:
   build: ./mongo/
   volumes:
-    - /opt/persistence/shorten.js/mongo:/var/lib/mongodb
+    - /opt/persistence/shorten-js/mongo:/var/lib/mongodb
   restart: always
 postgres:
   build: ./postgres/
   volumes:
-    - /opt/persistence/shorten.js/postgre:/var/lib/postgresql
+    - /opt/persistence/shorten-js/postgre:/var/lib/postgresql
   restart: always
